@@ -1,0 +1,495 @@
+//let is dynamic variabe declartion,const is constant
+let a="hello world";
+const b=12;
+const c="343aaa";
+const d=23.3444;
+console.log(a.charAt(1));
+console.log(a.indexOf("ll"));
+console.log(a.length);
+console.log(a.lastIndexOf("o"));
+console.log(a.slice(2,6));
+console.log(a.toUpperCase());
+console.log(a.includes("ll"));
+console.log(a.split(''));
+//numberss
+console.log(b+1);
+console.log(c+1);
+console.log(Number(c)+1);
+console.log(Number(true)+1);//true is denoted as the 1
+//methods in number
+console.log(Number.isInteger(b));
+console.log(Number.parseInt(c));
+console.log(Number.parseFloat(d).toFixed(2).toString());
+console.log(Number.isNaN("sjhdjh"));
+console.log(isNaN("sjhdjh"));
+//math operations
+console.log(Math.pi);
+console.log(Math.ceil(4.56));
+console.log(Math.floor(4.56));
+console.log(Math.floor(Math.random()*10+1));
+console.log("kathir".charAt(Math.floor(Math.random()*"kathir".length)));
+//if else
+let student="kathir";
+if(student){
+    value=`hello ${student}`;
+}
+else{
+    value=`sorry kathir`;
+}
+console.log(value);
+//switch case
+let player="rock";
+let computer="paper";
+switch(player){
+    case computer:
+        console.log("tie");
+        case "rock":
+        if(computer==="paper"){
+            console.log("conmputer win");
+        }
+
+        else{
+            console.log("player win");
+        }
+        break;
+        default:
+            alert("system error");
+        }
+//trenary operators '?' ':'
+player="rock";
+computer="scicor";
+result=computer===player ? "tie" : computer === "scicor" ? "player win" : "computer win";
+console.log(result);
+//user inputs
+let name= prompt("enter the name");
+if(name){
+    console.log( name ?? "u didn't enter the name");
+}
+else{
+    console.log("pls enter the name");
+}//using null colasking
+console.log(name.trim().length);
+//stone paper siccor using user input
+let user=confirm("enter the stone,paper,siccor ");
+if(user){
+ let   playerOne=prompt("enter the rock,paper,siccor");
+
+let play = playerOne.trim().toLocaleLowerCase();
+console.log(play);
+ 
+ if(play==="rock"||play==="paper"||play==="siccor"){
+   let computer_choice=Math.floor(Math.random()*3+1);
+   console.log(computer_choice);
+   computer=computer_choice===1 ? "paper" :computer_choice===2 ? "rock" :"siccor";
+  console.log(computer);
+  let result=computer===play?"tie" :computer==="rock" && play==="paper"? "computer win":computer==="paper"&& play==="rock"?"coputer win": computer==="rock" && play==="siccor"?"computer win":"you win";
+  alert(result);
+  let playagain=confirm("wnna play match");
+  playagain ? location.reload():alert("thanks for playing");
+ }
+ else{
+    alert("enter the bove the value");
+   }
+}
+ else{
+    alert("enter the vallue");
+}
+
+
+
+let i=0;
+while(i<10){
+    i++
+    if(i===3){
+        break;
+    }
+    
+    console.log(i);
+}
+//functions
+function sum(a,b){
+return a+b;
+}
+console.log(sum(2,3));
+console.log(sum(100,5));
+function email(em){
+   return em.slice(0,em.indexOf('@'))
+}
+console.log(email("kathir@2003"));
+console.log(email("ravi@2021"));
+const propercase= function (name){
+    console.log(name);
+    return name.charAt(0).toUpperCase()+name.slice(1).toLowerCase();
+    
+}
+console.log(propercase("apple"));
+            const arr=["kathir",1,"kamal",5,"ashwin"];
+           //add and delete the element at last 
+            arr.push("amal davids");
+            console.log(arr);
+            arr.pop();
+            console.log(arr);
+            //add and delete the item at first
+            arr.unshift("tamil");
+            console.log(arr);
+            arr.shift();
+            console.log(arr);
+            //splice to delete the element
+            arr.splice(1,2);
+            //to add the element at the specific location
+            arr.splice(1,1,"jonwick");
+            console.log(arr.reverse());
+            console.log(arr.join());
+            const spl=arr.join();
+            console.log(spl.split(',')); 
+            const arr1=[",java","python","html"];
+            console.log(spl.concat(arr1))
+        const newArr=[arr,arr1];
+        console.log(newArr[0][1],newArr[1][0]);
+
+//reading object
+const obj={
+    name:"kathir",age:18,
+    std:{
+        degree:"b.tech",
+        dept:"IT"
+    },
+    student:["hello","world","2.o"],
+myfunc:function(){
+    return `hello frnd ${this.name}`;
+}}
+console.log(obj.std.degree);
+
+console.log(obj.myfunc());
+
+console.log(obj["student"]);
+//inheritance
+const detail=Object.create(obj);
+detail.skill="JS";
+console.log(detail.myfunc());
+console.log(detail.skill);
+const series={
+    Sname:"naruto",
+    director:"kishimoto",
+    Mdirector:"AR"
+}
+//delete some property in object 
+//delete series.Sname;
+console.log(Object.keys(series));
+console.log(Object.values(series));
+for(let job in series){
+    console.log(`${job}`);
+}
+//to find the property is here or not
+console.log(series.hasOwnProperty("director"));
+//destructuring
+const {director:myfav}=series;
+console.log(myfav);
+const{Sname}=series;
+console.log(Sname );
+function Myfav(Mdirector){
+    return Mdirector;
+}
+console.log(Myfav(series));
+//creating class and inhertance
+class myclass{
+    constructor(name,project){
+       this.name=name;
+       this.project=project;
+       this.age=18;
+    }
+    getAge(){
+        this.age=age;
+    }
+    setAge(change){
+        this.age=change;
+    }
+    result(){
+        return console.log(`my name is ${this.name} i'm doing ${this.project} and my age is ${this.age}`);
+    }
+}
+class std2 extends myclass{
+    constructor(name){
+        super(name);
+    }
+    result2(){
+        return console.log(`hello frnd this is ${this.name} my age ${this.age}`);
+    }
+}
+const myob=new myclass("kathir","HTML");
+const myob1=new myclass("ravi","JS");
+const myob3=new std2("ashwin","java");
+myob3.setAge(19)
+myob3.result2()
+//using private and public object
+class veg{
+    //private use key word "#"
+    #shop="hotel ayya";
+    //public
+    location="padur";
+    constructor(choose){
+        this.item1="poori";
+        this.item2="pongal";
+        this.sidedish=choose;
+    }
+    cock(){
+        return console.log(`there is a ${this.item1} and sidedish is ${this.sidedish} hotel at ${this.#shop} `);
+    }
+}
+const obj=new veg("pikel");
+obj.cock();
+console.log(obj.shop);
+console.log(obj.location);
+//JSON
+const myObj={
+    stdNames:["kathir","ravi","parthi"],
+degree:"B.TECH",
+func: function my(){
+console.log("this is  my function");
+}
+}
+console.log(myObj.stdNames);
+//converting object to string 
+const sendjson= JSON.stringify(myObj);
+console.log(sendjson);
+//convertig string to obj
+const reciveJson=JSON.parse(sendjson);
+console.log(reciveJson);
+console.log(reciveJson.stdNames[2]);
+
+//exception error handeling
+"use strict"
+const myfunc= ()=>{
+    let i=0
+    while(i<=5){
+        try{
+            if(i%2 !== 0){
+            throw new Error("this is our custom error");
+        }
+        console.log("this even")
+    }catch(err){
+            console.error(err);
+        }
+        finally{
+            console.log("...finally block");
+            i++;
+
+        }
+
+    }}
+    myfunc();
+//DOM object mobel
+//method for getting element in the html
+const view1=document.getElementById("view1");
+console.log(view1);
+const view2=document.querySelector("#view2");
+console.log(view2);
+view1.style.display="flex";
+view2.style.display="";
+const views=document.getElementsByClassName("view");
+console.log(views);
+const sameviews=document.querySelectorAll(".view");
+console.log(sameviews);
+const divs=view1.querySelectorAll("div");
+console.log(divs);
+const samedivs=view1.getElementsByTagName("div");
+console.log(samedivs);
+const evendiv=view1.querySelectorAll("div:nth-of-type(2n)");
+console.log(evendiv);
+for(let i=0;i<evendiv.length;i++){
+    evendiv[i].style.backgroundColor="purple";
+    evendiv[i].style.width="150px";
+
+}
+const navtxt=document.querySelector("nav h1");
+console.log(navtxt);
+navtxt.textContent="Welcome";
+const navBar=document.querySelector("nav");
+navBar.innerHTML="<h1>welcom guys</h1><p>this our page to learn javascrit</p>";
+navBar.style.justifyContent="flex";
+console.log(evendiv[0].parentElement.children);
+console.log(evendiv[0].parentElement.childNodes);
+console.log(evendiv[0].parentElement.hasChildNodes());
+console.log(evendiv[0].parentElement.lastElementChild);
+console.log(evendiv[0].parentElement.lastChild);
+console.log(evendiv[0].parentElement.nextSibling);
+console.log(evendiv[0].parentElement.nextElementSibling);
+console.log(evendiv[0].previousElementSibling);
+view2.style.flexDirecton="row";
+view2.style.margin="10px";
+view2.style.flexWrap="wrap";
+console.log(view2.lastElementChild);
+while(view2.lastChild){
+view2.lastChild.remove();}
+const myfunc=(parent,count)=>{
+    const newdiv=document.createElement("div");
+    newdiv.textContent=count;
+newdiv.style.width="100px";
+newdiv.style.height="100px";
+newdiv.style.backgroundColor="black";
+newdiv.style.textAlign="center";
+newdiv.style.margin="10px"
+newdiv.style.display="flex";
+newdiv.style.justifyContent="center";
+newdiv.style.alignItems="center";
+view2.append(newdiv);
+}
+for(let i=1;i<=12;i++){
+    myfunc(view2,i)
+}
+
+ //event listner syntax
+//h1.addeventListner("name",func,usecaptcha);
+const view=document.querySelector("#view1");
+const div=document.querySelector("div");
+const h2=document.querySelector("h2");
+const blue=document.querySelector(".blue");
+const h1= document.querySelector("h1");
+
+h2.addEventListener("click",(event)=>{
+    //stop propagation is used to stop the bubling in or out
+    event.stopPropagation();
+ const text=event.target.textContent;
+ text==="click"?event.target.textContent="clicked":event.target.textContent="click";
+
+})
+div.addEventListener("click",(event=>{
+    div.style.backgroundColor="purple";   
+}))
+blue.addEventListener("click",(event)=>{
+    /*add and remove the class in existing class using classList eg:
+    blue.classList.add("red")
+    blue.classList.remove("blue")*/
+   
+    blue.classList.toggle("red")
+    blue.classList.toggle("blue")
+})
+
+/*console.log(h1);
+console.log(h2);
+const myfunc=()=>{
+    const a=parseInt(prompt("enter the num1"));
+    const b=parseInt(prompt("enter the num2"));
+    const sum=a+b;
+    alert(sum);
+    }
+    h1.addEventListener("click",(event)=>
+    {
+        console.log(event.target);
+        event.target.textContent="welcome";
+
+    });
+h2.addEventListener("click",myfunc,false);
+*/
+//readyState to check the doument are loaded or not
+document.addEventListener('readystatechange',(e)=>{
+if(document.readyState==="complete"){
+    console.log("complete")
+    intfunc();
+}})
+intfunc=()=>{
+    const view1=document.getElementById("view1");
+    view1.addEventListener("submit",(event)=>{
+       event.preventDefault();
+        console.log("submited");
+    })
+}
+const div = document.querySelector(".aqua");
+console.log(div);
+div.innerHTML="<h2>click</h2>";
+   
+
+//API to store the data by using sesion and local
+const pizzas=["small","medium","large"];
+const obj={
+    names:"kathir",
+    foods:{
+        breakfast:"idly",lunch:"rice",dinner:"chapati"
+    },
+    myfunc: function(){
+        return `${this.names}`;
+        }
+    
+};
+window.sessionStorage.setItem("mySessionStore",JSON.stringify(obj));
+console.log(sessionStorage)
+const sessiondata=JSON.parse(sessionStorage.getItem("mySessionStore"))
+console.log(sessiondata);
+window.localStorage.setItem("mylocal",JSON.stringify(obj));
+const local=JSON.parse(localStorage.getItem("mylocal"));
+console.log(local);
+
+//moules in js
+export /*default*/ function TV(){
+    return "I'm watching TV ";
+};
+export const mobile=()=>{
+    return "I'm working on mobile";
+};
+export const laptop=()=>{
+    return "I'm working on laptop";
+};
+
+/* default using another type but default not neccesary
+export default TV;
+export{mobile,laptop};
+*/
+
+//import TV from "./module.js";
+//import { mobile as m ,laptop as l } from "./module.js";
+import * as my from "./module.js";
+console.log(my.TV());
+console.log(my.laptop()); 
+console.log(my.mobile());
+
+//module in css
+ export default class myclass{
+    constructor(name,age){
+        this.name=name;
+        this.age=18;
+    };
+    mymethod(){
+        return "this is my method";
+    };
+}
+import myclass from "./module.js";
+const ob=new myclass("kathir");
+console.log(ob.age);
+console.log(ob.name);
+console.log(ob.mymethod())
+
+
+//heigher order function
+ export const std=[
+    {
+        "userId":1,
+        "id":1,
+        "name":"kathir"
+    },
+    {
+        "userId":1,
+        "id":2,
+        "name":"karthi"
+    },
+    {
+        "userId":1,
+        "id":3,
+        "name":"ashwin"
+    }
+ ];
+//heigher order function
+import {std}  from "./module.js";
+std.forEach((post) => {
+console.log(post);
+});
+const filter=std.filter((event)=>{
+    return event.userId===1;
+    
+});
+console.log(filter);
+const map=std.map((post)=>{
+return post.id;
+});
+console.log(map);
+
+

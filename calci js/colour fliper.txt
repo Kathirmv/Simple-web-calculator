@@ -1,0 +1,79 @@
+<html >
+  <head>
+    <title>My Page</title>
+    <link rel="stylesheet" href="trial.css">
+  </head>
+  <body>
+    <script type="module" src="trial.js"></script>
+    <main >
+     <form >
+<div class="a">
+      <h1>colour-name:RED</h1>
+</div>
+<br>
+<div class="bt">
+<button name="submit" >click</button>
+</div>
+</form>
+</main>
+  </body>
+</html>
+//css
+.a{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:aqua;
+    width: 350px;
+    height: 50px;
+}
+main{
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 250px;
+}
+.bt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    background-color:none;
+}
+button{
+    padding-left:15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: bisque;
+}
+.all{
+    background-color: red;
+}
+//java script
+const body=document.querySelector("body");
+const name=document.querySelector(".a");
+const button=document.querySelector("button");
+const h1=document.querySelector("h1");
+console.log(button);
+const color=["red","blue","green"];
+button.addEventListener("click",(event)=>{
+    event.preventDefault();
+    const rand=Math.floor(Math.random()*color.length);
+const randcolor=color[rand];
+ console.log(randcolor);
+ if(randcolor==="blue"){
+   body.style.backgroundColor="blue";
+    h1.textContent="colour-name:BLUE";
+ }
+ else if(randcolor==="green"){
+    body.style.backgroundColor="green";
+    h1.textContent="colour-name:green";
+ }
+ else{
+    body.style.backgroundColor="red";
+    h1.textContent="colour-name:RED";
+ }
+})
